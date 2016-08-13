@@ -1,4 +1,4 @@
-<img src="http://i.imgur.com/6ogRder.jpg" width=100></img>
+<img src="http://i.imgur.com/6ogRder.jpg" width=250></img>
 # Hypatia
 
 Hypatia listens to HTTP streaming response bodies on (1) a day of the week (2)
@@ -9,13 +9,13 @@ Or, Hypatia lets you record your radio shows!
 # Usage
 
 ```yaml
-StreamURL: "http://wtju.net:8000/wtju-opus-256.ogg"
+StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
 BaseSavePath: "."
 Shows:
   Monday:
-    - StartTime: "08:00"
+    - StartTime: "08:00" # don't forget the zero!
       Duration: "2h"
-    - StartTime: "06:00"
+    - StartTime: "16:00" # use military time
       Duration: "1m1h"
     # ...
   Saturday:
