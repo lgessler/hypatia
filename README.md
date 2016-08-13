@@ -83,5 +83,6 @@ at a certain time (3) for as long you tell her to.
 # TODO
 
 * Compile and distribute binaries
+* Fix OGG metadata
 * Automatic MP3 conversion
 * More forgiving time format
