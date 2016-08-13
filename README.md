@@ -15,7 +15,7 @@ Shows:
     - StartTime: "08:00"
       Duration: "2h"
     - StartTime: "06:00"
-      Duration: "1m1hr"
+      Duration: "1m1h"
     # ...
   Saturday:
     - StartTime: "12:10"
