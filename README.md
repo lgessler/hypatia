@@ -44,8 +44,8 @@ Hypatia lets you record your radio shows!
 6. Navigate to where you put Hypatia, and save the file (`COMMAND+S`) as 
    **config.yaml**
 7. Hit F4 again and type `terminal`.
-8. Type in `cd ~/Documents/Radio Recordings`, or `cd ~/<Wherever you put
-   Hypatia>`
+8. Type in `cd "~/Documents/Radio Recordings"`, or `cd "~/<Wherever you put
+   Hypatia>"`
 9. Type `chmod +x hypatia`
 10. Type `./hypatia`. Now she's listening!
 11. Hit the minimize button on the top left, if you like.
