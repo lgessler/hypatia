@@ -1,3 +1,4 @@
+![](http://i.imgur.com/6ogRder.jpg)
 # Hypatia
 
 Hypatia listens to HTTP streaming response bodies on (1) a day of the week (2)
