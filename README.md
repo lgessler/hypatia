@@ -10,7 +10,37 @@ have listeners.
    [here](https://github.com/lgessler/hypatia/raw/master/dist/windows/hypatia.exe)
 2. Put Hypatia in a safe place. `C:\Users\<yourname>\Documents\Radio Recordings\` 
    should be good.
-3. (Haven't finished this yet!)
+3. Right click inside the folder, mouse over "New", and select "Text Document". Name it anything. 
+4. Double click it to open it in an editor.
+5. Copy and paste the following:
+
+   ```yaml
+   StreamURL: "http://wtju.net:8000/wtjx-128.mp3"
+   BaseSavePath: "."
+   Shows:
+     Monday:
+       - StartTime: "08:00"
+         Duration: "2h"
+   ```
+5. **Being careful to preserve the spacing**, change the file to reflect when
+   your show is. E.g., if your show was on Sundays at 4:00PM, your file would
+   look like this:
+
+   ```yaml
+   StreamURL: "http://wtju.net:8000/wtjx-128.mp3"
+   BaseSavePath: "."
+   Shows:
+     Sunday:
+       - StartTime: "16:00"
+         Duration: "2h"
+   ```
+6. Save the file (CTRL+S) and exit your editor.
+7. Right click the file, click "Rename", hit CTRL+A, and type in "config.yaml"
+8. Click "yes" when the warning pops up. Don't worry, we know what we're doing.
+9. Hit your Windows key and type in `cmd` to open a command prompt.
+10. Type in `cd "<path>"`, where `<path>` is where you put `hypatia.exe`. E.g., `cd "Documents\Radio Recordings"`
+11. Type in `.\hypatia` to start Hypatia. Now she's listening!
+12. Minimize the window, if you want.
 
 ## Apple
 1. Download Hypatia 
