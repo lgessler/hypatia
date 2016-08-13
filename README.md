@@ -21,7 +21,7 @@ have listeners.
    in:
 
    ```yaml
-   StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
+   StreamURL: "http://wtju.net:8000/wtjx-128.mp3"
    BaseSavePath: "."
    Shows:
      Monday:
@@ -33,7 +33,7 @@ have listeners.
    look like this:
 
    ```yaml
-   StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
+   StreamURL: "http://wtju.net:8000/wtjx-128.mp3"
    BaseSavePath: "."
    Shows:
      Sunday:
@@ -60,6 +60,10 @@ have listeners.
    record WXTJ's internet stream, save them in the directory we're running Hypatia
    from, and all the times when we'd like her to listen.
 
+   If you prefer MP3, then set StreamURL to `...wtjx-128.mp3` rather than the
+   provided. Note, however, that `128` is really low quality. If you want a
+   higher quality MP3, you'd better listen to the `ogg` stream and transcode.
+
    ```yaml
    StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
    BaseSavePath: "."
@@ -85,3 +89,7 @@ at a certain time (3) for as long you tell her to.
 * Fix OGG metadata
 * Automatic MP3 conversion
 * More forgiving time format
+
+# License
+
+GPL
