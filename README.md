@@ -3,7 +3,7 @@
 Hypatia lets you record your radio shows *and* helps you convince yourself you
 have listeners.
 
-# Usage (Help how do I computer)
+# Usage (Minimal computering)
 
 ## Windows
 1. Download Hypatia
@@ -51,7 +51,7 @@ have listeners.
 10. Type `./hypatia`. Now she's listening!
 11. Hit the minimize button on the top left, if you like.
 
-# Usage (I know what a CSV file is)
+# Usage (I know how to computer)
 
 1. Download the appropriate binary from
    [here](https://github.com/lgessler/hypatia/tree/master/dist).
