@@ -41,6 +41,7 @@ have listeners.
 10. Type in `cd "<path>"`, where `<path>` is where you put `hypatia.exe`. E.g., `cd "Documents\Radio Recordings"`
 11. Type in `.\hypatia` to start Hypatia. Now she's listening!
 12. Minimize the window, if you want.
+13. When the time is right, Hypatia will start recording your show. It'll appear in a folder in the directory, something like `Saturday\16:00\Aug 13 2016.mp3`.
 
 ## Apple
 1. Download Hypatia 
@@ -80,6 +81,7 @@ have listeners.
 9. Type `chmod +x hypatia`
 10. Type `./hypatia`. Now she's listening!
 11. Hit the minimize button on the top left, if you like.
+12. When the time is right, Hypatia will start recording your show. It'll appear in a folder in the directory, something like `Saturday\16:00\Aug 13 2016.mp3`.
 
 # Usage (I know how to computer)
 
