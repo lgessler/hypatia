@@ -9,7 +9,7 @@ Or, Hypatia lets you record your radio shows!
 # Usage
 
 ```yaml
-StreamURL: "http://wtju.net:8000/wtju-opus-256.ogg"
+StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
 BaseSavePath: "."
 Shows:
   Monday:
