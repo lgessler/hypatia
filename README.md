@@ -1,4 +1,4 @@
-![](http://i.imgur.com/6ogRder.jpg)
+<img src="http://i.imgur.com/6ogRder.jpg" width=100></img>
 # Hypatia
 
 Hypatia listens to HTTP streaming response bodies on (1) a day of the week (2)
