@@ -9,6 +9,7 @@ Hypatia lets you record your radio shows!
    [here](https://github.com/lgessler/hypatia/raw/master/dist/windows/hypatia.exe)
 2. Put Hypatia in a safe place. `C:\Users\<yourname>\Documents\Radio Recordings\` 
    should be good.
+3. (Haven't finished this yet!)
 
 ## Apple
 1. Download Hypatia 
@@ -38,32 +39,40 @@ Hypatia lets you record your radio shows!
        - StartTime: "16:00"
          Duration: "2h"
    ```
-5. Hit `COMMAND+SHIFT+T`, navigate to where you put Hypatia, and save the file
-   as **config.yaml**
-6. Double click Hypatia. She's listening!
+5. Hit `COMMAND+SHIFT+T` if you have a bunch of stuff on the top part of the
+   screen.
+6. Navigate to where you put Hypatia, and save the file (`COMMAND+S`) as 
+   **config.yaml**
+7. Hit F4 again and type `terminal`.
+8. Type in `cd ~/Documents/Radio Recordings`, or `cd ~/<Wherever you put
+   Hypatia`
+9. Type `chmod +x hypatia`
+10. Type `./hypatia`. Now she's listening!
+11. Hit the minimize button on the top left, if you like.
 
 # Usage (I know what a CSV file is)
 
-1. Download the a
+1. Download the appropriate binary from
+   [here](https://github.com/lgessler/hypatia/tree/master/dist).
+2. Put the binary wherever you want the recordings to be.
+3. Edit `config.yaml` to your liking. In this sample config, we've told Hypatia to
+   record WXTJ's internet stream, save them in the directory we're running Hypatia
+   from, and all the times when we'd like her to listen.
 
-```yaml
-StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
-BaseSavePath: "."
-Shows:
-  Monday:
-    - StartTime: "08:00" # don't forget the zero!
-      Duration: "2h"
-    - StartTime: "16:00" # use military time
-      Duration: "1m1h"
-    # ...
-  Saturday:
-    - StartTime: "12:10"
-      Duration: "1m"
-```
-
-Edit `config.yaml` to your liking. In this sample config, we've told Hypatia to
-record WXTJ's internet stream, save them in the directory we're running Hypatia
-from, and all the times when we'd like her to listen.
+   ```yaml
+   StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
+   BaseSavePath: "."
+   Shows:
+     Monday:
+       - StartTime: "08:00" # don't forget the zero!
+         Duration: "2h"
+       - StartTime: "16:00" # use military time
+         Duration: "1m1h"
+       # ...
+     Saturday:
+       - StartTime: "12:10"
+         Duration: "1m"
+   ```
 
 # The nerdy explanation
 
