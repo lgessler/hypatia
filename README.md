@@ -13,9 +13,9 @@ StreamURL: "http://wtju.net:8000/wtju-opus-256.ogg"
 BaseSavePath: "."
 Shows:
   Monday:
-    - StartTime: "08:00"
+    - StartTime: "08:00" # don't forget the zero!
       Duration: "2h"
-    - StartTime: "06:00"
+    - StartTime: "16:00" # use military time
       Duration: "1m1h"
     # ...
   Saturday:
