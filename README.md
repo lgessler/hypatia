@@ -1,6 +1,7 @@
 <img src="http://i.imgur.com/6ogRder.jpg" width=250></img>
 # Hypatia
-Hypatia lets you record your radio shows!
+Hypatia lets you record your radio shows *and* helps you convince yourself you
+have listeners.
 
 # Usage (Help how do I computer)
 
