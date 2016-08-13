@@ -78,11 +78,10 @@ have listeners.
 # The nerdy explanation
 
 Hypatia listens to HTTP streaming response bodies on (1) a day of the week (2)
-at a certain time (3) for as long you tell her to.
+at a certain time (3) for as long you tell her to. 
 
 # TODO
 
-* Compile and distribute binaries
 * Fix OGG metadata
 * Automatic MP3 conversion
 * More forgiving time format
