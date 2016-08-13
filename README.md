@@ -5,7 +5,7 @@
 Hypatia lets you record your radio shows *and* helps you convince yourself you
 have listeners.
 
-# Usage (Minimal computering)
+# Usage (minimal computering)
 
 ## Windows
 1. Download Hypatia
