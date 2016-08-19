@@ -1,4 +1,5 @@
-StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
+#StreamURL: "http://wtju.net:8000/wtjx-opus-256.ogg"
+StreamURL: "http://wtju.net:8000/wtjx-128.mp3"
 BaseSavePath: "."
 Shows:
   Monday:

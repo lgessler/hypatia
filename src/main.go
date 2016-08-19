@@ -18,7 +18,7 @@ func check (e error) {
   }
 }
 
-func ScheduleShow(streamURL string, duration string, savePath string) {
+func DoShowRecording(streamURL string, duration string, savePath string) {
   os.MkdirAll(savePath, 0777)
 
   fname := time.Now().Format("Jan-2-2006") + filepath.Ext(streamURL)
@@ -34,8 +34,9 @@ func ScheduleShow(streamURL string, duration string, savePath string) {
   check(e)
   endTime := startTime + durationObject.Nanoseconds()
 
-  fmt.Printf("Starting at %s, ending at %s", startTime, endTime)
 
+  fmt.Printf("Beginning recording, lasting for %v. Saving to %v",
+    duration, savePath)
   reader := bufio.NewReader(resp.Body)
   for time.Now().UnixNano() < endTime {
     line, err := reader.ReadBytes('\n')
@@ -43,56 +44,60 @@ func ScheduleShow(streamURL string, duration string, savePath string) {
 
     f.Write(line)
   }
+  fmt.Println("Ending recording of %v", savePath)
   f.Sync()
 }
 
 func ScheduleShowRecordings(cfg cfgparser.Config) {
   for _,show := range cfg.Shows.Monday {
     showDir := filepath.Join(cfg.BaseSavePath, "Monday", show.StartTime)
-    gocron.Every(1).Monday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Monday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 
   for _,show := range cfg.Shows.Tuesday {
     showDir := filepath.Join(cfg.BaseSavePath, "Tuesday", show.StartTime)
-    gocron.Every(1).Tuesday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Tuesday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 
   for _,show := range cfg.Shows.Wednesday {
     showDir := filepath.Join(cfg.BaseSavePath, "Wednesday", show.StartTime)
-    gocron.Every(1).Wednesday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Wednesday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 
   for _,show := range cfg.Shows.Thursday {
     showDir := filepath.Join(cfg.BaseSavePath, "Thursday", show.StartTime)
-    gocron.Every(1).Thursday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Thursday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 
   for _,show := range cfg.Shows.Friday {
     showDir := filepath.Join(cfg.BaseSavePath, "Friday", show.StartTime)
-    gocron.Every(1).Friday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Friday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 
   for _,show := range cfg.Shows.Saturday {
     showDir := filepath.Join(cfg.BaseSavePath, "Saturday", show.StartTime)
-    gocron.Every(1).Saturday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Saturday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 
   for _,show := range cfg.Shows.Sunday {
     showDir := filepath.Join(cfg.BaseSavePath, "Sunday", show.StartTime)
-    gocron.Every(1).Sunday().At(show.StartTime).Do(ScheduleShow, cfg.StreamURL,
+    gocron.Every(1).Sunday().At(show.StartTime).Do(DoShowRecording, cfg.StreamURL,
       show.Duration, showDir)
   }
 }
 
 func main() {
   cfg := cfgparser.GetConfig()
+  fmt.Println("Hypatia's live!")
   ScheduleShowRecordings(cfg)
+  fmt.Println(`Successfully scheduled recordings. You should now minimize
+this window. Be careful not to close it.`)
   <-gocron.Start()
 }
 
