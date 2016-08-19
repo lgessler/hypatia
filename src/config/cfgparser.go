@@ -31,7 +31,7 @@ type Config struct {
 func GetConfig() Config {
   file, e := ioutil.ReadFile("./config.yaml")
   if e != nil {
-    fmt.Printf("Error reading config.json--is it there?\n\n%v", e)
+    fmt.Printf("Error reading config.yaml--is it there?\n\n%v", e)
     os.Exit(1)
   }
 
