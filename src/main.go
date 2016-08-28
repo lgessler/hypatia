@@ -73,6 +73,7 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
     fmt.Println("Error waiting for ffmpeg to finish")
     return
   }
+  os.Remove(src)
   os.Rename(dest, dest[0:len(dest)-8] + ".mp3")
   fmt.Println("Successfully transcoded to MP3.")
 }
