@@ -5,7 +5,7 @@
 Hypatia lets you record your radio shows *and* helps you convince yourself you
 have listeners.
 
-# Usage (minimal computering)
+# Usage (detailed)
 
 ## Windows
 1. Download Hypatia
@@ -85,7 +85,7 @@ have listeners.
 11. Hit the minimize button on the top left, if you like.
 12. When the time is right, Hypatia will start recording your show. It'll appear in a folder in the directory, something like `Saturday\16:00\Aug 13 2016.mp3`.
 
-# Usage (I know how to computer)
+# Usage
 
 1. Download the appropriate binary from
    [here](https://github.com/lgessler/hypatia/tree/master/dist).
@@ -112,11 +112,6 @@ have listeners.
        - StartTime: "12:10"
          Duration: "1m"
    ```
-
-# The nerdy explanation
-
-Hypatia listens to HTTP streaming response bodies on (1) a day of the week (2)
-at a certain time (3) for as long you tell her to. 
 
 # TODO
 
