@@ -62,7 +62,7 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
           fname[0:len(fname)-len(filepath.Ext(fname))] + "-tmp.mp3")
 
   fmt.Println("Attempting to transcode from " + src + " to " + dest)
-  cmd := exec.Command("ffmpeg","-i",src,"-codec:a","libmp3lame",dest)
+  cmd := exec.Command("ffmpeg","-i",src,"-codec:a","libmp3lame","-qscale:a","0",dest)
   err = cmd.Start()
   if err != nil {
     fmt.Println("ffmpeg not detected; not attempting a transcode")
