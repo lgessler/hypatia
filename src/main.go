@@ -3,12 +3,14 @@ import (
   "net/http"
   "bufio"
   "os"
+  "os/exec"
   "path/filepath"
   "time"
   "fmt"
   "strings"
 
   "github.com/jasonlvhit/gocron"
+
 
   "./config"
 )
@@ -51,6 +53,20 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
   }
   fmt.Printf("Ending recording of %v\n", savePath)
   f.Sync()
+
+  // Try to transcode with ffmpeg
+  cmd := exec.Command("ffmpeg","-i",fname,"-codec:a","libmp3lame",
+    filepath.Join(savePath, "transcoded-" + fname))
+  err = cmd.Start()
+  if err != nil {
+    return
+  }
+  err = cmd.Wait()
+  if err != nil {
+    return
+  }
+  os.Remove(fname)
+  os.Rename("transcoded-" + fname, fname)
 }
 
 func ScheduleShowRecordings(cfg cfgparser.Config) {
