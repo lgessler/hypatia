@@ -24,6 +24,8 @@ func check (e error) {
 func DoShowRecording(streamURL string, duration string, savePath string) {
   // Crude workaround until gocron is fixed
   if !strings.Contains(savePath, time.Now().Weekday().String()) {
+    fmt.Printf("gocron tried to record %v on %v. Quitting.",
+      savePath, time.Now().Weekday().String())
     return
   }
 
@@ -55,18 +57,24 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
   f.Sync()
 
   // Try to transcode with ffmpeg
-  cmd := exec.Command("ffmpeg","-i",fname,"-codec:a","libmp3lame",
-    filepath.Join(savePath, "transcoded-" + fname))
+  src := filepath.Join(savePath, fname)
+  dest := filepath.Join(savePath,
+          "transcoded-" + fname[0:len(fname)-len(filepath.Ext(fname))] + ".mp3")
+
+  fmt.Println("Attempting to transcode from " + src + " to " + dest)
+  cmd := exec.Command("ffmpeg","-i",src,"-codec:a","libmp3lame",dest)
   err = cmd.Start()
   if err != nil {
+    fmt.Println("ffmpeg not detected; not attempting a transcode")
     return
   }
   err = cmd.Wait()
   if err != nil {
+    fmt.Println("Error waiting for ffmpeg to finish")
     return
   }
-  os.Remove(fname)
-  os.Rename("transcoded-" + fname, fname)
+  os.Remove(src)
+  os.Rename(dest, src)
 }
 
 func ScheduleShowRecordings(cfg cfgparser.Config) {
