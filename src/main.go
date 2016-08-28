@@ -59,7 +59,7 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
   // Try to transcode with ffmpeg
   src := filepath.Join(savePath, fname)
   dest := filepath.Join(savePath,
-          fname[0:len(fname)-len(filepath.Ext(fname))] + ".mp3tmp")
+          fname[0:len(fname)-len(filepath.Ext(fname))] + "-tmp.mp3")
 
   fmt.Println("Attempting to transcode from " + src + " to " + dest)
   cmd := exec.Command("ffmpeg","-i",src,"-codec:a","libmp3lame",dest)
@@ -73,7 +73,8 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
     fmt.Println("Error waiting for ffmpeg to finish")
     return
   }
-  os.Rename(dest, dest[0:len(dest)-3])
+  os.Rename(dest, dest[0:len(dest)-8] + ".mp3")
+  fmt.Println("Successfully transcoded to MP3.")
 }
 
 func ScheduleShowRecordings(cfg cfgparser.Config) {
