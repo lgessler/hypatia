@@ -24,7 +24,7 @@ func check (e error) {
 func DoShowRecording(streamURL string, duration string, savePath string) {
   // Crude workaround until gocron is fixed
   if !strings.Contains(savePath, time.Now().Weekday().String()) {
-    fmt.Printf("gocron tried to record %v on %v. Quitting.",
+    fmt.Printf("gocron tried to record %v on %v. Quitting.\n",
       savePath, time.Now().Weekday().String())
     return
   }
@@ -48,8 +48,8 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
     duration, savePath)
   reader := bufio.NewReader(resp.Body)
   for time.Now().UnixNano() < endTime {
-    line, err := reader.ReadBytes('\n')
-    check(err)
+    line, _ := reader.ReadBytes('\n')
+    //check(err)
 
     f.Write(line)
   }
