@@ -32,16 +32,16 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
   os.MkdirAll(savePath, 0777)
 
   fname := time.Now().Format("Jan-2-2006") + filepath.Ext(streamURL)
-  f, err := os.Create(filepath.Join(savePath, fname))
-  check(err)
+  f, _ := os.Create(filepath.Join(savePath, fname))
+  //check(err)
   defer f.Close()
 
-  resp, err := http.Get(streamURL)
-  check(err)
+  resp, _ := http.Get(streamURL)
+  //check(err)
 
   startTime := time.Now().UnixNano()
-  durationObject, e := time.ParseDuration(duration)
-  check(e)
+  durationObject, _ := time.ParseDuration(duration)
+  //check(e)
   endTime := startTime + durationObject.Nanoseconds()
 
   fmt.Printf("Beginning recording, lasting for %v. Saving to %v\n",
@@ -63,7 +63,7 @@ func DoShowRecording(streamURL string, duration string, savePath string) {
 
   fmt.Println("Attempting to transcode from " + src + " to " + dest)
   cmd := exec.Command("ffmpeg","-i",src,"-codec:a","libmp3lame","-qscale:a","0",dest)
-  err = cmd.Start()
+  err := cmd.Start()
   if err != nil {
     fmt.Println("ffmpeg not detected; not attempting a transcode")
     return
