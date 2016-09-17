@@ -2,8 +2,7 @@
 # Hypatia
 <img src="http://i.imgur.com/6ogRder.jpg" width=250></img>
 
-Maybe sometimes you feel like your only listener is your mom. But don't worry,
-Hypatia's always listening.
+Hypatia records internet audio streams on a weekly cycle for a certain amount of time at a certain time.
 
 # Usage (detailed)
 
