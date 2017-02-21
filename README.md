@@ -4,6 +4,8 @@
 
 Hypatia records internet audio streams on a weekly cycle for a certain amount of time at a certain time.
 
+Originally developed and successfully deployed for [WXTJ](http://www.wxtj.fm/).
+
 # Usage (detailed)
 
 ## Windows
